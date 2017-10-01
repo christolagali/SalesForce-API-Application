@@ -1,5 +1,3 @@
-console.log('Hello Chris');
-
 var express = require('express');
 var http = require('http');
 var jsforce = require('jsforce');
@@ -10,17 +8,24 @@ const sfdconfig = fs.readFileSync('./sfdcConfig.json');
 
 // read json object
 const config = JSON.parse(sfdconfig);
+
+// create express based web server object
 var app = express();
+
+// Setting Port for the We Application
 app.set('port', process.env.PORT || 3001 );
+
+
 app.get('/', function (req, res) {
   var conn = new jsforce.Connection({
     // you can change loginUrl to connect to sandbox or prerelease env.
     //loginUrl : 'https://test.salesforce.com'
     loginUrl : 'https://login.salesforce.com'
   });
-  console.log(config.webServer.username);
-  var username = /*config.sfdcConfig.username*/'christopher.lagali@csueastbay.edu';
-  var password = /*config.sfdcConfig.password*/'PraiseLord773XgPdL4FibCddEDdWAWZfookk';
+
+  //
+  var username = config.sfdcConfig.username;
+  var password = config.sfdcConfig.password;
   conn.login(username, password, function(err, userInfo) {
     if (err) { return console.error(err); }
     // Now you can get the access token and instance URL information.
