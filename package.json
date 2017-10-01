@@ -1,0 +1,16 @@
+{
+  "name": "sfdcapp",
+  "version": "1.0.0",
+  "description": "This is a test sfdc application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chris Lagali",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.5",
+    "file-system": "^2.2.2",
+    "jsforce": "^1.8.0"
+  }
+}
