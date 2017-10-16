@@ -132,11 +132,11 @@ function setProfilePic(conn,imgId){
     console.log(srcUrl);
     conn.sobject("Contact").upsert(
         {
-            EmplID__c: '013361038',
+            EmplID__c: config.webServer.my_emplid,
             LastName: 'Lagali',
             FirstName: 'Chris',
             hed__UniversityEmail__c: 'christopher.lagali@csueastbay.edu',
-            Phone : '5103704926',
+            Phone : config.webServer.my_phone,
             ProfilePicURL__c: srcUrl
         },'EmplID__c', function(err, ret) {
             if (err || !ret.success) { return console.error(err, ret); }
