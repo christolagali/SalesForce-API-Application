@@ -147,13 +147,13 @@ function setProfilePic(conn,imgId){
 function insertSingleRecord(conn){
     // Single record creation
 
-    /*conn.sobject("Account").create({ Name : 'Chris AC', RecordTypeId : '0121I000000cO3T', Email__c : 'christopher.lagali@csueastbay.edu', Phone : '5103704926', Chair_Associate_Chair__c : 'true'}, function(err, ret) {
+    /*conn.sobject("Account").create({ Name : 'Chris AC', RecordTypeId : '0121I000000cO3T', Email__c : 'christopher.lagali@csueastbay.edu', Phone : config.webServer.my_phone, Chair_Associate_Chair__c : 'true'}, function(err, ret) {
 		if (err || !ret.success) { return console.error(err, ret); }
 		console.log("Created record id : " + ret.id);
 	});
 	*/
 
-    conn.sobject("Contact").create({ Id: '013361038',EmplID__c: '013361038',LastName: 'Lagali',FirstName: 'Christopher',hed__UniversityEmail__c: 'christopher.lagali@csueastbay.edu', Phone : '5108854260'}, function(err, ret) {
+    conn.sobject("Contact").create({ Id: config.webServer.my_emplid,EmplID__c: config.webServer.my_emplid,LastName: 'Lagali',FirstName: 'Christopher',hed__UniversityEmail__c: 'christopher.lagali@csueastbay.edu', Phone : config.webServer.my_phone}, function(err, ret) {
         if (err || !ret.success) { return console.error(err, ret); }
         console.log("Created record id : " + ret.id);
     });
@@ -163,7 +163,7 @@ function insertSingleRecord(conn){
 function upsertSingleRecord(conn){
     // Single record creation
 
-    /*conn.sobject("Account").create({ Name : 'Chris AC', RecordTypeId : '0121I000000cO3T', Email__c : 'christopher.lagali@csueastbay.edu', Phone : '5103704926', Chair_Associate_Chair__c : 'true'}, function(err, ret) {
+    /*conn.sobject("Account").create({ Name : 'Chris AC', RecordTypeId : '0121I000000cO3T', Email__c : 'christopher.lagali@csueastbay.edu', Phone : config.webServer.my_phone, Chair_Associate_Chair__c : 'true'}, function(err, ret) {
 		if (err || !ret.success) { return console.error(err, ret); }
 		console.log("Created record id : " + ret.id);
 	});
@@ -171,11 +171,11 @@ function upsertSingleRecord(conn){
     var url = '/services/images/photo/'+'00P3D000000ix4nUAA';
     conn.sobject("Contact").upsert(
         {
-            EmplID__c: '013361038',
+            EmplID__c: config.webServer.my_emplid,
             LastName: 'Lagali',
             FirstName: 'Chris',
             hed__UniversityEmail__c: 'christopher.lagali@csueastbay.edu',
-            Phone : '5103704926',
+            Phone : config.webServer.my_phone,
             PhotoUrl: url
         },'EmplID__c', function(err, ret) {
             if (err || !ret.success) { return console.error(err, ret); }
