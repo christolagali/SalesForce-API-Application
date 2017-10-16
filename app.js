@@ -108,7 +108,7 @@ function uploadImage(conn){
 function queryAttachmentId(conn){
     var myid ='';
     // Get the Attachment
-    conn.query("SELECT Id FROM Attachment WHERE ParentID='0033D00000LK8VVQA1'", function(err, result) {
+    conn.query("SELECT Id FROM Attachment WHERE ParentID='"+config.webServer.my_parent_id+"'", function(err, result) {
         if (err) { return console.log("z"+err); }
         // print the result
 
